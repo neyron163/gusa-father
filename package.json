@@ -7,7 +7,10 @@
   "scripts": {
     "start": "nodemon --watch '*.ts' --exec 'ts-node --esm' ./src/index.ts",
     "build": "ncc build ./src/index.ts --out dist/",
-    "eslint:fix": "eslint --fix"
+    "eslint:check": "eslint ./src",
+    "eslint:fix": "eslint --fix",
+    "ts:check": "tsc --noEmit",
+    "codestyle": "npm run eslint:check && npm run ts:check"
   },
   "repository": {
     "type": "git",
