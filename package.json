@@ -2,9 +2,10 @@
   "name": "gusa-father",
   "version": "0.0.1",
   "description": "",
+  "type": "module",
   "main": "src/index.ts",
   "scripts": {
-    "start": "nodemon --watch '*.ts' --exec 'ts-node' ./src/index.ts",
+    "start": "nodemon --watch '*.ts' --exec 'ts-node --esm' ./src/index.ts",
     "eslint:fix": "eslint --fix"
   },
   "repository": {
