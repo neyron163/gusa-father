@@ -4,8 +4,6 @@ import { Telegraf } from 'telegraf';
 
 dotenv.config();
 
-const test = '';
-
 if (!process.env.BOT_TOKEN || !process.env.OPENAI_API_KEY) {
     throw new Error('Bot token or chatgpt doesn`t exists');
 }
