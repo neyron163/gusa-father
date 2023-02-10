@@ -1,6 +1,6 @@
+import { ChatGPTAPI } from 'chatgpt';
 import * as dotenv from 'dotenv';
 import { Telegraf } from 'telegraf';
-import { ChatGPTAPI } from 'chatgpt';
 
 dotenv.config();
 

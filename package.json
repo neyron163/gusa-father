@@ -6,7 +6,11 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "nodemon --watch '*.ts' --exec 'ts-node --esm' ./src/index.ts",
-    "eslint:fix": "eslint --fix"
+    "build": "ncc build ./src/index.ts --out dist/",
+    "eslint:check": "eslint ./src",
+    "eslint:fix": "eslint --fix",
+    "ts:check": "tsc --noEmit",
+    "codestyle": "npm run eslint:check && npm run ts:check"
   },
   "repository": {
     "type": "git",
@@ -19,6 +23,7 @@
   },
   "homepage": "https://github.com/neyron163/gusa-father#Readme.md",
   "dependencies": {
+    "@vercel/ncc": "^0.36.1",
     "chatgpt": "4.2.0",
     "dotenv": "^16.0.3",
     "telegraf": "4.11.2",
@@ -26,6 +31,7 @@
     "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@types/node": "18.13.0",
     "@typescript-eslint/eslint-plugin": "5.51.0",
     "@typescript-eslint/parser": "5.51.0",
