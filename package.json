@@ -5,6 +5,7 @@
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
+    "start": "nodemon --watch '*.ts' --exec 'ts-node --esm' ./src/index.ts",
     "copy": "cp ./.env ./dist/.env",
     "build": "ncc build ./src/index.ts --out dist/ && npm run copy",
     "eslint:check": "eslint ./src",
