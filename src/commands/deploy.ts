@@ -1,0 +1,12 @@
+import { execSync } from 'child_process';
+import type { CtxType } from '../types';
+import { OPTIONS } from '../constants';
+
+export default async (ctx: CtxType) => {
+    await ctx.reply('Запускаю, ожидайте');
+    const gitPullOutput = execSync('git pull', OPTIONS);
+    const output = execSync('npm run build', OPTIONS);
+    if (output) {
+        ctx.reply(gitPullOutput);
+    }
+};
