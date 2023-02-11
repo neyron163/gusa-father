@@ -1,7 +1,7 @@
+import { COMMANDS } from '../constants';
 import { DATA } from '../data';
-import { api } from '../instances';
 import { handleMessageFromUser } from '../helpers';
-import { COMMANDS } from "../constants";
+import { api } from '../instances';
 import type { CtxType } from '../types';
 
 export default async (ctx: CtxType) => {

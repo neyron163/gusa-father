@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
-import type { CtxType } from '../types';
+
 import { OPTIONS } from '../constants';
+import type { CtxType } from '../types';
 
 export default async (ctx: CtxType) => {
     await ctx.reply('Запускаю, ожидайте');

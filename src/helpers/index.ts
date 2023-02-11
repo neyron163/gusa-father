@@ -1,4 +1,4 @@
-import type { CtxType, CommandsType } from '../types';
+import type { CommandsType, CtxType } from '../types';
 
 // Список команд для которых нужно возвращать сообщение "Введите сообщение"
 const COMMANDS: CommandsType[] = ['chatbot'];
