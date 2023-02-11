@@ -9,6 +9,9 @@ if (!BOT_TOKEN || !OPENAI_API_KEY) {
 
 export const api = new ChatGPTAPI({
     apiKey: OPENAI_API_KEY,
+    completionParams: {
+        model: 'text-davinci-003',
+    },
 });
 
 export const bot = new Telegraf(BOT_TOKEN);
