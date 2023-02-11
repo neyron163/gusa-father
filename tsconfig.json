@@ -23,6 +23,10 @@
     "resolveJsonModule": true,
     "baseUrl": "."
   },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
   "exclude": ["node_modules"],
   "include": ["./src/**/*.ts"]
 }
