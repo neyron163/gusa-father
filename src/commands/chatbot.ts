@@ -14,18 +14,25 @@ export default async (
     >,
 ) => {
     const messageFromGroup = ctx.message.text.replace('/chatbot', '');
+
+    if (!messageFromGroup) return ctx.reply('введите сообщение');
+
     const currentUserId = ctx.from.id;
     const currentUseData = DATA.users[currentUserId];
 
-    const answerFromGpt = await api.sendMessage(
-        messageFromGroup,
-        currentUseData && {
-            conversationId: DATA.users[currentUserId].cId,
-            parentMessageId: DATA.users[currentUserId].pId,
-        },
-    );
+    try {
+        const answerFromGpt = await api.sendMessage(
+            messageFromGroup,
+            currentUseData && {
+                conversationId: DATA.users[currentUserId].cId,
+                parentMessageId: DATA.users[currentUserId].pId,
+            },
+        );
 
-    DATA.users = { ...DATA.users, [ctx.from.id]: { cId: answerFromGpt.conversationId, pId: answerFromGpt.id } };
+        DATA.users = { ...DATA.users, [ctx.from.id]: { cId: answerFromGpt.conversationId, pId: answerFromGpt.id } };
 
-    ctx.reply(answerFromGpt);
+        return ctx.reply(answerFromGpt);
+    } catch (error) {
+        return ctx.reply(`Что-то пошло не так...${error}`);
+    }
 };
