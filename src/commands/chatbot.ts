@@ -1,21 +1,13 @@
-import Context, { NarrowedContext } from 'telegraf/typings/context';
-import { Message, Update } from 'telegraf/typings/core/types/typegram';
-
+import { COMMANDS } from '../constants';
 import { DATA } from '../data';
+import { handleMessageFromUser } from '../helpers';
 import { api } from '../instances';
+import type { CtxType } from '../types';
 
-export default async (
-    ctx: NarrowedContext<
-        Context<Update>,
-        {
-            message: Update.New & Update.NonChannel & Message.TextMessage;
-            update_id: number;
-        }
-    >,
-) => {
-    const messageFromGroup = ctx.message.text.replace('/chatbot', '');
+export default async (ctx: CtxType) => {
+    const messageFromGroup = handleMessageFromUser(ctx, COMMANDS.CHATBOT);
 
-    if (!messageFromGroup) return ctx.reply('введите сообщение');
+    if (!messageFromGroup) return;
 
     const currentUserId = ctx.from.id;
     const currentUseData = DATA.users[currentUserId];

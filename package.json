@@ -6,11 +6,13 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "nodemon --watch '*.ts' --exec 'ts-node --esm' ./src/index.ts",
-    "build": "ncc build ./src/index.ts --out dist/",
+    "copy": "cp ./.env ./dist/.env",
+    "build": "ncc build ./src/index.ts --out dist/ && npm run copy",
     "eslint:check": "eslint ./src",
-    "eslint:fix": "eslint --fix",
+    "eslint:fix": "eslint ./src --fix",
     "ts:check": "tsc --noEmit",
-    "codestyle": "npm run eslint:check && npm run ts:check"
+    "codestyle": "npm run eslint:check && npm run ts:check",
+    "start:pm2": "npm run build && pm2 start ./dist/index.js --watch"
   },
   "repository": {
     "type": "git",
