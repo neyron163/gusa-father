@@ -1,6 +1,9 @@
 name: ci
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - "main"
 
 jobs:
   build:
@@ -21,9 +24,6 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v4
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         with:
           context: .
           target: production
