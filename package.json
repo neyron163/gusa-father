@@ -8,7 +8,7 @@
     "start": "nodemon --watch '*.ts' --exec 'ts-node --esm' ./src/index.ts",
     "build": "ncc build ./src/index.ts --out dist/",
     "eslint:check": "eslint ./src",
-    "eslint:fix": "eslint --fix",
+    "eslint:fix": "eslint ./src --fix",
     "ts:check": "tsc --noEmit",
     "codestyle": "npm run eslint:check && npm run ts:check"
   },
@@ -26,6 +26,7 @@
     "@vercel/ncc": "^0.36.1",
     "chatgpt": "4.2.0",
     "dotenv": "^16.0.3",
+    "puppeteer": "^19.6.3",
     "telegraf": "4.11.2",
     "ts-node": "10.9.1",
     "typescript": "4.9.5"

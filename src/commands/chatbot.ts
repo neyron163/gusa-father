@@ -2,6 +2,7 @@ import Context, { NarrowedContext } from 'telegraf/typings/context';
 import { Message, Update } from 'telegraf/typings/core/types/typegram';
 
 import { DATA } from '../data';
+import { translateText } from '../helpers';
 import { api } from '../instances';
 
 export default async (
@@ -13,7 +14,7 @@ export default async (
         }
     >,
 ) => {
-    const messageFromGroup = ctx.message.text.replace('/chatbot', '');
+    const messageFromGroup = await translateText(ctx.message.text.replace('/chatbot', ''));
 
     if (!messageFromGroup) return ctx.reply('введите сообщение');
 
