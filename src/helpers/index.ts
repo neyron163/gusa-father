@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer';
 export const translateText = async (text: string) => {
     // для теста добавить в launch { headless: false })
     const browser = await puppeteer.launch({
-        ignoreDefaultArgs: ['--disable-extensions'],
+        args: ['--no-sandbox'],
     });
     const page = await browser.newPage();
 
