@@ -14,9 +14,11 @@ export default async (
         }
     >,
 ) => {
-    const messageFromGroup = await translateText(ctx.message.text.replace('/chatbot', ''));
+    const text = ctx.message.text.replace('/chatbot', '');
 
-    if (!messageFromGroup) return ctx.reply('введите сообщение');
+    if (!text) return ctx.reply('введите сообщение');
+
+    const messageFromGroup = await translateText(text);
 
     const currentUserId = ctx.from.id;
     const currentUseData = DATA.users[currentUserId];
