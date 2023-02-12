@@ -9,7 +9,7 @@ export const translateText = async (text: string) => {
 
     await page.goto('https://translate.google.com/');
 
-    await page.setViewport({width: 1080, height: 1024});
+    await page.setViewport({ width: 1080, height: 1024 });
 
     await page.focus('textarea');
     await page.keyboard.type(text);
@@ -26,7 +26,6 @@ export const translateText = async (text: string) => {
         return '';
     });
 
-
     await browser.close();
     return rusText || text;
-}
+};

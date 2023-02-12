@@ -8,7 +8,7 @@
     "start": "nodemon --watch '*.ts' --exec 'ts-node --esm' ./src/index.ts",
     "build": "ncc build ./src/index.ts --out dist/",
     "eslint:check": "eslint ./src",
-    "eslint:fix": "eslint --fix",
+    "eslint:fix": "eslint ./src --fix",
     "ts:check": "tsc --noEmit",
     "codestyle": "npm run eslint:check && npm run ts:check"
   },

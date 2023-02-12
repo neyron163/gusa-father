@@ -1,8 +1,8 @@
 import Context, { NarrowedContext } from 'telegraf/typings/context';
 import { Message, Update } from 'telegraf/typings/core/types/typegram';
-import { translateText } from '../helpers';
 
 import { DATA } from '../data';
+import { translateText } from '../helpers';
 import { api } from '../instances';
 
 export default async (
