@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  bot:
+    env_file:
+    - .env
+    build:
+      context: ./
+      target: development
+    volumes:
+    - .:/app
+    command: npm start
+    environment:
+      NODE_ENV: development
